@@ -6,6 +6,7 @@
         <li><a href="#icon">Icon 图标</a></li>
         <li><a href="#grid">栅格布局</a></li>
         <li><a href="#breadcrumb">面包屑</a></li>
+        <li><a href="#dropdown">下拉菜单</a></li>
       </ul>
     </div>
     <div class="app-main">
@@ -42,6 +43,26 @@
         <x-breadcrumb :stack="stack" @navigate="handleNavigate"></x-breadcrumb>
         <x-button type="primary" @click="resetStack">reset stack</x-button>
       </section>
+
+      <section id="dropdown">
+        <h2 class="section-title">下拉菜单</h2>
+        <x-dropdown>
+          <x-button>操作</x-button>
+          <x-dropdown-menu slot="menu">
+            <x-dropdown-item @click="handleDropdowClick">编辑</x-dropdown-item>
+            <x-dropdown-item @click="handleDropdowClick">删除</x-dropdown-item>
+            <x-dropdown-item @click="handleDropdowClick">标记</x-dropdown-item>
+          </x-dropdown-menu>
+        </x-dropdown>
+        <x-dropdown>
+          <x-button>操作2</x-button>
+          <x-dropdown-menu slot="menu">
+            <x-dropdown-item @click="handleDropdowClick">编辑</x-dropdown-item>
+            <x-dropdown-item @click="handleDropdowClick">删除</x-dropdown-item>
+            <x-dropdown-item @click="handleDropdowClick">标记</x-dropdown-item>
+          </x-dropdown-menu>
+        </x-dropdown>
+      </section>
     </div>
   </div>
 </template>
@@ -51,6 +72,7 @@ import Button from './components/button'
 import Icon from './components/icon'
 import { Row, Col } from './components/grid'
 import BreadCrumb from './components/breadcrumb'
+import {Dropdown, DropdownMenu, DropdownItem} from './components/dropdown'
 
 export default {
   name: 'app',
@@ -59,7 +81,10 @@ export default {
     'x-icon': Icon,
     'x-row': Row,
     'x-col': Col,
-    'x-breadcrumb': BreadCrumb
+    'x-breadcrumb': BreadCrumb,
+    'x-dropdown': Dropdown,
+    'x-dropdown-menu': DropdownMenu,
+    'x-dropdown-item': DropdownItem
   },
 
   data () {
@@ -88,6 +113,10 @@ export default {
     handleNavigate (item, newStack) {
       console.log('定位到' + item.name)
       this.stack = newStack
+    },
+
+    handleDropdowClick (e) {
+      // console.log(e)
     }
   }
 }

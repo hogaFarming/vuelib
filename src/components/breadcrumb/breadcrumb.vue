@@ -10,7 +10,7 @@
 </template>
 <style>
   .x-breadcrumb {
-
+    margin-bottom: 10px;
   }
   .x-breadcrumb-item {
 
