@@ -39,7 +39,8 @@
 
       <section id="grid">
         <h2 class="section-title">面包屑</h2>
-        <x-breadcrumb></x-breadcrumb>
+        <x-breadcrumb :stack="stack" @navigate="handleNavigate"></x-breadcrumb>
+        <x-button type="primary" @click="resetStack">reset stack</x-button>
       </section>
     </div>
   </div>
@@ -61,9 +62,32 @@ export default {
     'x-breadcrumb': BreadCrumb
   },
 
+  data () {
+    return {
+      stack: []
+    }
+  },
+
+  created () {
+    this.resetStack()
+  },
+
   methods: {
     handleBtnClick (e) {
       console.log(e.target.tagName)
+    },
+
+    resetStack () {
+      this.stack = [
+        { name: 'Home', id: '' },
+        { name: 'List', id: '1212' },
+        { name: 'Detail', id: 'asdf' }
+      ]
+    },
+
+    handleNavigate (item, newStack) {
+      console.log('定位到' + item.name)
+      this.stack = newStack
     }
   }
 }
