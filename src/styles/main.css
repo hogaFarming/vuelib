@@ -15,7 +15,7 @@ body {
   font-family: "Segoe UI", "Microsoft YaHei", SimSun, sans-serif;
 }
 .app-nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
@@ -36,6 +36,7 @@ body {
 }
 .app-main {
   padding: 15px 20px;
+  margin-bottom: 100px;
 }
 .app-main section {
   margin-bottom: 15px;

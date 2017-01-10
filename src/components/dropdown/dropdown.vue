@@ -1,12 +1,12 @@
 <template>
   <div class="x-dropdown">
-    <div class="x-dropdown-trigger" @click="handleTriggerClick">
+    <div class="x-dropdown-trigger" @click="handleTriggerClick" ref="trigger">
       <slot></slot>
     </div>
     <div
       class="x-dropdown-dropdown"
       ref="dropdown"
-      v-show="open"
+      :style="{ visibility: open ? 'visible' : 'hidden' }"
       @click="handleDropdownClick">
       <slot name="menu"></slot>
     </div>
@@ -18,8 +18,9 @@
     display: inline-block;
   }
   .x-dropdown-dropdown {
+    z-index: 999;
     position: absolute;
-    bottom: 100%;
+    /*bottom: 100%;*/
   }
   .x-dropdown-menu {
     min-width: 80px;
@@ -47,6 +48,17 @@
     watch: {
       'open' (isOpen) {
         if (isOpen) {
+          // setTimeout(() => {
+          let triggerEl = this.$refs.trigger
+          let dpEl = this.$refs.dropdown
+          let restViewportHeight = window.innerHeight + window.scrollY -
+            getOffsetTop(triggerEl, true) - triggerEl.offsetHeight
+          if (restViewportHeight < dpEl.offsetHeight) {
+            dpEl.style.bottom = '100%'
+          } else {
+            dpEl.style.bottom = ''
+          }
+          // }, 0)
           setTimeout(() => {
             document.body.addEventListener('click', this.handleBodyClick)
           }, 0)
@@ -89,4 +101,11 @@
       return isChildren(currParent, parent, true)
     }
   }
+  function getOffsetTop (node, isAbsolute) {
+    if (!isAbsolute) return node.offsetTop
+    let parent = node.offsetParent
+    if (!parent) return node.offsetTop
+    return node.offsetTop + getOffsetTop(parent, true)
+  }
+
 </script>
