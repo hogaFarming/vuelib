@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './app'
 
-import './styles/main.css'
+import './shared/styles/main.css'
 
 /* eslint-disable no-new */
 new Vue({

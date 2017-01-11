@@ -69,11 +69,11 @@
 </template>
 
 <script>
-import Button from './components/button'
-import Icon from './components/icon'
-import { Row, Col } from './components/grid'
-import BreadCrumb from './components/breadcrumb'
-import {Dropdown, DropdownMenu, DropdownItem} from './components/dropdown'
+import Button from 'components/button'
+import Icon from 'components/icon'
+import { Row, Col } from 'components/grid'
+import BreadCrumb from 'components/breadcrumb'
+import {Dropdown, DropdownMenu, DropdownItem} from 'components/dropdown'
 
 export default {
   name: 'app',
