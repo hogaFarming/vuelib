@@ -29,7 +29,32 @@ module.exports = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
-      inject: true
+      inject: true,
+      chunks: ['app']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'app-login.html',
+      template: 'index.html',
+      inject: true,
+      chunks: ['applogin']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'admin.html',
+      template: 'index.html',
+      inject: true,
+      chunks: ['admin']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'admin-login.html',
+      template: 'index.html',
+      inject: true,
+      chunks: ['adminlogin']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'uidemo.html',
+      template: 'index.html',
+      inject: true,
+      chunks: ['uidemo']
     }),
     new FriendlyErrors()
   ]
