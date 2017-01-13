@@ -1,0 +1,90 @@
+.appnav {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  font-size: 16px;
+  color:#b8c7ce;
+  background: #333e51;
+}
+.appnav-lv1,
+.appnav-lv2,
+.appnav-lv3 {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.appnav-lv2,
+.appnav-lv3 {
+  display: none;
+}
+
+.appnav-lv1 {
+
+}
+.appnav-lv1 > li {
+  width: 180px;
+}
+
+.lv1-title {
+  padding: 13px 20px;
+  border-left: 5px solid #333e51;
+  cursor: pointer;
+}
+.lv1-title > .icon,
+.lv1-title > span {
+  display: inline-block;
+  /*vertical-align: middle;*/
+}
+.lv1-title .icon {
+  /*margin-right: 20px;*/
+  /*font-size: 20px;*/
+}
+.active > .lv1-title {
+  border-color: #3398db;
+  background: #252b3c;
+}
+
+.appnav-lv2 {
+  font-size: 14px;
+  background: #40506d;
+}
+.active > .appnav-lv2 {
+  display: block;
+}
+.appnav-lv2 > li {
+  position: relative;
+  padding: 15px 24px;
+  cursor: pointer;
+}
+.appnav-lv2 > li:hover {
+  background: #252c3c;
+}
+.appnav-lv2 > li:hover > span {
+  color: #fff;
+}
+
+li:hover > .appnav-lv3 {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 150px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background: #4e596c;
+}
+.appnav-lv3 li {
+  padding: 15px 24px;
+}
+.appnav-lv3 li:hover {
+  background: #252c3c;
+}
+.appnav-lv3 li:first-child {
+  height: 46px;
+  background: #252c3c;
+  border-top-right-radius: 6px;
+}
+.appnav-lv3 li:last-child {
+  border-bottom-right-radius: 6px;
+}
