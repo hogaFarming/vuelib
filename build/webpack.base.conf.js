@@ -30,7 +30,8 @@ module.exports = {
       'vue$': 'vue/dist/vue.common.js',
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/shared/assets'),
-      'components': path.resolve(__dirname, '../src/shared/components')
+      'components': path.resolve(__dirname, '../src/shared/components'),
+      'utils': path.resolve(__dirname, '../src/shared/utils')
     }
   },
   resolveLoader: {
