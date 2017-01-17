@@ -86,11 +86,11 @@
     right: 0;
     bottom: 0;
     overflow: auto;
+    /*padding: 15px 18px;*/
   }
 </style>
 
 <script>
-  import Icon from 'components/icon'
   // import Appheader from 'components/appheader'
   import Appnav from 'components/appnav'
   import eventBus from 'utils/event-bus'
@@ -122,7 +122,6 @@
     },
 
     components: {
-      'x-icon': Icon,
       // 'x-appheader': Appheader,
       'x-appnav': Appnav
     }

@@ -7,6 +7,7 @@
         <li><a href="#grid">栅格布局</a></li>
         <li><a href="#breadcrumb">面包屑</a></li>
         <li><a href="#dropdown">下拉菜单</a></li>
+        <li><a href="#table">表格</a></li>
       </ul>
     </div>
     <div class="app-main">
@@ -63,6 +64,12 @@
             <x-dropdown-item @click="handleDropdowClick">标记</x-dropdown-item>
           </x-dropdown-menu>
         </x-dropdown>
+      </section>
+
+      <section id="table">
+        <h2 class="section-title">表格</h2>
+        <x-breadcrumb :stack="stack" @navigate="handleNavigate"></x-breadcrumb>
+        <x-button type="primary" @click="resetStack">reset stack</x-button>
       </section>
     </div>
   </div>

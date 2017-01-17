@@ -10,7 +10,7 @@
             <span>{{lv1.name}}</span>
           </div>
 
-          <ul class="appnav-lv2">
+          <ul class="appnav-lv2" :style="{maxHeight: lv2MaxHeight}">
             <li v-for="lv2 in lv1.sub" :class="{active: lv2 === currLv2}"
               @click="handleLv2Click(lv2)">
               <x-icon name="circle-o"
@@ -45,7 +45,8 @@
       return {
         currLv1: null,
         currLv2: null,
-        currLv3: null
+        currLv3: null,
+        lv2MaxHeight: 'initial'
       }
     },
     computed: {
@@ -56,6 +57,11 @@
     created () {
       eventBus.$on('WINDOW_RESIZE', msg => {
         console.log(msg)
+        const appHeadHeight = 60
+        const perMenu = 44
+        const menuCount = this.menus.length
+        const winHeight = window.innerHeight
+        this.lv2MaxHeight = winHeight - appHeadHeight - (perMenu * menuCount) + 'px'
       })
     },
     methods: {
