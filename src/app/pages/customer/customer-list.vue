@@ -20,6 +20,9 @@
         @selectionChange="onSelectionChange">
       </x-table>
     </div>
+    <x-modal title="新增客hu" :visible="true">
+      <p>helelo</p>
+    </x-modal>
   </div>
 </template>
 

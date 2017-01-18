@@ -35,6 +35,7 @@
 <style src="./appnav.css"></style>
 
 <script>
+  import _ from 'lodash'
   // import {router} from 'vue-router'
   import Icon from 'components/icon'
   import eventBus from 'utils/event-bus'
@@ -55,14 +56,14 @@
       }
     },
     created () {
-      eventBus.$on('WINDOW_RESIZE', msg => {
+      eventBus.$on('WINDOW_RESIZE', _.throttle(msg => {
         console.log(msg)
         const appHeadHeight = 60
-        const perMenu = 44
+        const perMenu = 43
         const menuCount = this.menus.length
         const winHeight = window.innerHeight
         this.lv2MaxHeight = winHeight - appHeadHeight - (perMenu * menuCount) + 'px'
-      })
+      }, 500))
     },
     methods: {
       handleLv1Click (item, index) {
