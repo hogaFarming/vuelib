@@ -1,11 +1,23 @@
 <template>
   <div class="homepage">
-    首页
+    <x-dynamic-form
+      :fields="fields"
+      :formData="formData">
+    </x-dynamic-form>
   </div>
 </template>
 
 <script>
-  export default {
+  import protocals from './protocal'
 
+  export default {
+    data () {
+      return {
+        fields: protocals.fields,
+        formData: {
+          'xwcustname': '玄武科技'
+        }
+      }
+    }
   }
 </script>

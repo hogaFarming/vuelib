@@ -13,6 +13,7 @@ import BreadCrumb from 'components/breadcrumb'
 import {Dropdown, DropdownMenu, DropdownItem} from 'components/dropdown'
 import Table from 'components/table'
 import Modal from 'components/modal'
+import DynamicForm from 'components/dynamic-form'
 
 import App from './app/app'
 import routes from './app/routes'
@@ -33,6 +34,7 @@ Vue.component('x-dropdown-menu', DropdownMenu)
 Vue.component('x-dropdown-item', DropdownItem)
 Vue.component('x-table', Table)
 Vue.component('x-modal', Modal)
+Vue.component('x-dynamic-form', DynamicForm)
 
 /* eslint-disable no-new */
 new Vue({
