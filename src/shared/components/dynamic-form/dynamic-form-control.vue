@@ -15,32 +15,25 @@ const controlTypeMap = {
   15: Avatar
 }
 
-const Component = {
-  props: ['type', 'value'],
-
-  data () {
-    return {
-    }
-  },
+export default {
+  props: ['type', 'value', 'config', 'isError'],
 
   render (h) {
-    const tag = controlTypeMap[this.type]
+    const component = controlTypeMap[this.type]
     const options = {
       props: {
-        value: this.value
+        value: this.value,
+        config: this.config,
+        isError: this.isError
       },
       on: {
-        input: e => {
-          this.value = e.target.value
-        }
-      },
-      nativeOn: {
+        input: val => this.$emit('input', val),
+        blur: any => this.$emit('blur'),
+        focus: any => this.$emit('focus')
       }
     }
-    return h(tag, options)
+    return h(component, options)
   }
 }
-
-export default Component
 
 </script>

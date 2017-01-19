@@ -1,8 +1,10 @@
 <template>
   <div class="homepage">
+    <x-button type="primary" @click="validateForm">校验表单</x-button>
     <x-dynamic-form
+      ref="dyform"
       :fields="fields"
-      :formData="formData">
+      v-model="formData">
     </x-dynamic-form>
   </div>
 </template>
@@ -17,6 +19,23 @@
         formData: {
           'xwcustname': '玄武科技'
         }
+      }
+    },
+
+    watch: {
+      formData (newValue) {
+        console.log(JSON.stringify(newValue))
+      }
+    },
+
+    methods: {
+      validateForm () {
+        const result = this.$refs.dyform.validate()
+        console.log(`校验结果：${result}`)
+      },
+
+      handleInput (newValue) {
+        this.formData = newValue
       }
     }
   }

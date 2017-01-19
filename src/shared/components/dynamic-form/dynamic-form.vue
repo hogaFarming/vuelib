@@ -1,10 +1,14 @@
 <template lang="html">
   <div class="dyform">
     <dynamic-form-field
-      v-for="field in parsedFields"
-      :value="formData[field.name]"
-      :field="field"
-      @input="onFieldValueChange">
+      v-for="(field, index) in parsedFields"
+      ref="fields"
+      :value="value[field.name]"
+      :name="field.name"
+      :label="field.label"
+      :controlType="field.controlType"
+      :config="field.config"
+      @input="onFieldValueChange(field, $event)">
     </dynamic-form-field>
   </div>
 </template>
@@ -14,7 +18,7 @@ import parse from './parse.js'
 import DynamicFormField from './dynamic-form-field.vue'
 
 export default {
-  props: ['fields', 'formData'],
+  props: ['fields', 'value'],
 
   data () {
     return {}
@@ -27,8 +31,21 @@ export default {
   },
 
   methods: {
-    onFieldValueChange (e) {
-      console.log(e)
+    onFieldValueChange (field, newValue) {
+      let newFormValue = { ...this.value, [field.name]: newValue }
+      this.$emit('input', newFormValue)
+      // console.log(JSON.stringify(this.value))
+    },
+
+    validate () {
+      let errors = []
+      this.$refs.fields.forEach(fieldInstance => {
+        let result = fieldInstance.validate()
+        if (result) {
+          errors.push(result)
+        }
+      })
+      return errors
     }
   },
 
