@@ -1,26 +1,7 @@
-<template lang="html">
-  <input type="text"
-    :class="{'is-error': isError}"
-    :value="value"
-    @input="handleInput"
-    @blur="$emit('blur')"
-    @focus="$emit('focus')">
-</template>
-
 <script>
-export default {
-  props: ['value', 'config', 'isError'],
+  import inputMixin from '../mixins/input'
 
-  methods: {
-    handleInput (e) {
-      this.$emit('input', e.target.value)
-    }
+  export default {
+    mixins: [inputMixin]
   }
-}
 </script>
-
-<style lang="css" scoped>
-  .is-error {
-    border-color: red;
-  }
-</style>

@@ -1,11 +1,14 @@
-<template lang="html">
-  <input type="phone">
-</template>
-
 <script>
+import inputMixin from '../mixins/input'
 export default {
+  mixins: [inputMixin],
+
+  data () {
+    return {
+      inputConfig: {
+        type: 'phone'
+      }
+    }
+  }
 }
 </script>
-
-<style lang="css">
-</style>

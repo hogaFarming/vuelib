@@ -1,0 +1,26 @@
+.dyform__field {
+  margin: 10px 0 15px;
+}
+.dyform__label {
+  margin-bottom: 10px;
+}
+.dyform__error {
+  margin-top: 8px;
+  color: #d0010b;
+}
+.dyform__input {
+  width: 100%;
+  padding: 8px 10px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 2px;
+  /*line-height: 33px;*/
+  font-size: 14px;
+  outline: none;
+}
+.dyform__input:focus {
+  border-color: #3398db;
+}
+.dyform__input.is-error {
+  border-color: #dd4b39;
+}

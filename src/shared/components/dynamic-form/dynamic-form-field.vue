@@ -15,7 +15,8 @@
       </dynamic-form-control>
     </div>
     <div class="dyform__error" v-show="errorMsg">
-      {{errorMsg}}
+      <x-icon name="warning"></x-icon>
+      <span>{{errorMsg}}</span>
     </div>
   </div>
 </template>
@@ -74,7 +75,4 @@ export default {
 </script>
 
 <style lang="css">
-  .dyform__error {
-    color: red;
-  }
 </style>

@@ -11,7 +11,7 @@
       </div>
       <div class="x-modal__footer">
         <x-button class="x-modal__button" @click="cancel">关闭</x-button>
-        <x-button class="x-modal__button" type="primary" @click="ok">确定</x-button>
+        <x-button class="x-modal__button" type="primary" @click="confirm">确定</x-button>
       </div>
     </div>
   </div>
@@ -26,6 +26,7 @@
     left: 0;
     right: 0;
     /*background: rgba(0, 0, 0, 0.3);*/
+    overflow: auto;
   }
   .x-modal__wrap.is-visible {
     display: block;
@@ -39,6 +40,7 @@
     background: #fff;
     border:1px solid #f4f4f4;
     box-shadow:0 10px 30px 0 rgba(174,174,174,0.50);
+    margin-bottom: 50px;
   }
   .x-modal__header {
     padding: 0 20px;
@@ -76,11 +78,11 @@
 
     methods: {
       cancel () {
-        this.$emit('close')
+        this.$emit('cancel')
       },
 
-      ok () {
-        this.$emit('ok')
+      confirm () {
+        this.$emit('confirm')
       }
     }
   }

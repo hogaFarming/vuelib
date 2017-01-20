@@ -7,7 +7,7 @@
       <div class="custlist-cnt-title">{{title}}</div>
       <div class="toolbar">
         <div class="toolbar-left">
-          <x-button type="primary">新增客户</x-button>
+          <x-button type="primary" @click="addFormVisible = true">新增客户</x-button>
           <x-button type="primary">合并客户</x-button>
           <x-button type="primary">批量合并</x-button>
           <x-button type="primary">字段设置</x-button>
@@ -20,8 +20,14 @@
         @selectionChange="onSelectionChange">
       </x-table>
     </div>
-    <x-modal title="新增客hu" :visible="true">
-      <p>helelo</p>
+    <x-modal title="新增客hu" :visible="addFormVisible"
+      @cancel="addFormVisible = false"
+      @confirm="handleAddFormConfirm">
+      <x-dynamic-form
+        ref="dyform"
+        :fields="addProtocal.fields"
+        v-model="addFormData">
+      </x-dynamic-form>
     </x-modal>
   </div>
 </template>
@@ -55,6 +61,8 @@
 </style>
 
 <script>
+  import protocal from './protocal'
+
   let records = [
     {
       cust: '中国移动通信集团公司',
@@ -88,13 +96,25 @@
       return {
         records,
         columns,
-        title: '客户列表'
+        title: '客户列表',
+        addFormVisible: true,
+        addProtocal: protocal,
+        addFormData: {}
       }
     },
 
     methods: {
       onSelectionChange (selectedRecords) {
         console.log(selectedRecords)
+      },
+
+      handleAddFormConfirm () {
+        let errors = this.$refs.dyform.validate()
+        if (errors.length) {
+          return
+        } else {
+          console.info('提交表单', this.addFormData)
+        }
       }
     }
   }
