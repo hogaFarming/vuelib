@@ -15,8 +15,7 @@ module.exports = {
     app: './src/app.entry.js',
     applogin: './src/app-login.entry.js',
     admin: './src/admin.entry.js',
-    adminlogin: './src/admin-login.entry.js',
-    uidemo: './src/uidemo.js'
+    adminlogin: './src/admin-login.entry.js'
   },
   output: {
     path: config.build.assetsRoot,

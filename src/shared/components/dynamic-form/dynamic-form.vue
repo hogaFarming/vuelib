@@ -26,7 +26,7 @@ export default {
 
   computed: {
     parsedFields () {
-      return parse(this.fields)
+      return this.fields.length ? parse(this.fields) : []
     }
   },
 

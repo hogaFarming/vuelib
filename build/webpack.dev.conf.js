@@ -50,12 +50,6 @@ module.exports = merge(baseWebpackConfig, {
       inject: true,
       chunks: ['adminlogin']
     }),
-    new HtmlWebpackPlugin({
-      filename: 'uidemo.html',
-      template: 'index.html',
-      inject: true,
-      chunks: ['uidemo']
-    }),
     new FriendlyErrors()
   ]
 })

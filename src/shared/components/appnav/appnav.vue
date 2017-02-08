@@ -37,7 +37,6 @@
 <script>
   import _ from 'lodash'
   // import {router} from 'vue-router'
-  import Icon from 'components/icon'
   import eventBus from 'utils/event-bus'
 
   export default {
@@ -91,9 +90,6 @@
       handleScroll () {
         console.log('scroll')
       }
-    },
-    components: {
-      'x-icon': Icon
     }
   }
 </script>
