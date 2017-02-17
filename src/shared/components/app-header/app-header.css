@@ -1,0 +1,44 @@
+.apphd {
+  height: 60px;
+  background: #fff;
+}
+.apphd__left {
+  float: left;
+}
+.apphd__right {
+  float: right;
+}
+.apphd__item {
+  float: left;
+}
+.nav-toggle {
+  line-height: 60px;
+  padding: 0 20px;
+  border-right: 1px solid #ededed;
+  font-size: 20px;
+  color: #4a4a4a;
+  cursor: pointer;
+}
+.app-logo {
+  padding: 15px 18px;
+}
+.app-logo__img {
+  display: block;
+}
+.bell {
+  padding: 0 15px;
+  line-height: 60px;
+  font-size: 20px;
+  color: #4a4a4a;
+}
+.user {
+  padding: 0 20px 0 15px;
+}
+.user__avatar,
+.user__name {
+  line-height: 60px;
+  vertical-align: middle;
+}
+.user__avatar {
+  margin-right: 10px;
+}

@@ -55,7 +55,7 @@
             selectedRecords.push(record)
           }
         })
-        this.$emit('selectionChange', selectedRecords)
+        this.$emit('select-change', selectedRecords)
       }
     },
 

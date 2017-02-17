@@ -2,7 +2,7 @@
   <button :disabled="disabled" class="x-btn"
     @click="handleClick"
     :class="[
-      type ? `x-btn-${type}` : 'x-btn-default',
+      type ? `x-btn-${type}` : 'x-btn-primary',
       {
         'is-disabled': disabled
       }

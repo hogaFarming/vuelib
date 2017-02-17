@@ -32,7 +32,7 @@
   </div>
 </template>
 
-<style src="./appnav.css"></style>
+<style src="./app-nav.css"></style>
 
 <script>
   import _ from 'lodash'

@@ -28,6 +28,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.common.js',
       'src': path.resolve(__dirname, '../src'),
+      'api': path.resolve(__dirname, '../src/shared/api'),
       'assets': path.resolve(__dirname, '../src/shared/assets'),
       'components': path.resolve(__dirname, '../src/shared/components'),
       'utils': path.resolve(__dirname, '../src/shared/utils')

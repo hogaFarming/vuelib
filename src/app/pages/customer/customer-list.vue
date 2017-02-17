@@ -1,106 +1,76 @@
 <template>
-  <div class="custlist">
-    <div class="custlist-title">
-      {{title}}
-    </div>
-    <div class="custlist-cnt">
-      <div class="custlist-cnt-title">{{title}}</div>
-      <div class="toolbar">
-        <div class="toolbar-left">
-          <x-button type="primary" @click="addCust">新增客户</x-button>
-          <x-button type="primary">合并客户</x-button>
-          <x-button type="primary">批量合并</x-button>
-          <x-button type="primary">字段设置</x-button>
-        </div>
-      </div>
-      <x-table
-        :selectable="true"
-        :records="records"
-        :columns="columns"
-        @selectionChange="onSelectionChange">
-      </x-table>
-    </div>
-    <add-cust-modal v-model="addFormVisible" @cancel="onAddCancel" @confirm="onAddConfirm"></add-cust-modal>
-  </div>
+  <entity-common-list
+    :entityId="entityId"
+    :entityName="entityName"
+    :filters="filters"
+    :searchConfig="searchConfig"
+    :records-can-delete="recordsCanDelete"
+    @select-change="onSelectChange">
+    
+    <!--<div slot="filters">-->
+      <select v-model="selectedType" slot="filters">
+        <option v-for="t in types" :value="t.value">{{t.name}}</option>
+      </select>
+    <!--</div>-->
+    <x-button @click="transfer" :disabled="disableTransfer" slot="buttons">转移客户</x-button>
+  </entity-common-list>
 </template>
 
-<style>
-  .custlist-title {
-    padding: 15px 20px;
-    margin-bottom: 20px;
-    font-size: 18px;
-    line-height: 1;
-    background: #f9f9f9;
-  }
-  .custlist-cnt {
-    margin: 0 15px;
-    background: #fff;
-  }
-  .custlist-cnt-title {
-    line-height: 50px;
-    padding: 0 15px;
-  }
-  .toolbar {
-    padding: 18px 15px 30px;
-    border-top: 1px solid #f0f2f4;
-  }
-  .toolbar-left {
-    /*padding-left: 15px;*/
-  }
-  .toolbar-left .x-btn {
-    margin-right: 5px;
-  }
-</style>
-
 <script>
-  import AddCustModal from './add-cust-modal'
-  import * as api from './api'
+  import EntityCommonList from '../entity-template/entity-common-list'
 
   export default {
-    components: {
-      'add-cust-modal': AddCustModal
-    },
-
     data () {
       return {
-        records: [],
-        columns: [],
-        title: '客户列表',
-        addFormVisible: true
+        entityId: '78c85b5f-0146-1bcf-a8da-8993632d529c',
+        entityName: '客户',
+        searchConfig: {
+          entityKey: 'custname',
+          placeholder: '请输入关键字'
+        },
+        types: [
+          { name: '所有客户', value: '1' },
+          { name: '我的客户', value: '2' }
+        ],
+        selectedType: '1',
+
+        selectedRecords: []
       }
     },
 
-    mounted () {
-      api.getCustList()
-        .then(data => {
-          this.records = data.records
-          this.columns = data.columns
-        })
+    computed: {
+      filters () {
+        return {
+          custType: this.selectedType
+        }
+      },
+
+      disableTransfer () {
+        const IS_SIGN = 1
+        return !this.selectedRecords.length ||
+          this.selectedRecords.some(item => item.status === IS_SIGN)
+      }
     },
 
     methods: {
-      onSelectionChange (selectedRecords) {
-        console.log(selectedRecords)
+      onSelectChange (selectedRecords) {
+        this.selectedRecords = selectedRecords
       },
 
-      addCust () {
-        this.addFormVisible = true
-        // this.$modal({
-        //   component: CustAdd,
-        //   beforeOpen () {
-        //     return true
-        //   },
-        //   onCancel () {
-        //   },
-        //   onConfirm () {
+      recordsCanDelete (selectedRecords) {
+        const IS_NOT_SIGN = 0
+        return selectedRecords.length &&
+          selectedRecords.every(item => item.status === IS_NOT_SIGN)
+      },
 
-        //   }
-        // }).then()
-      },
-      onAddCancel () {
-      },
-      onAddConfirm () {
+      transfer () {
+        // 转移选中客户
+        console.log('转移客户')
       }
+    },
+
+    components: {
+      'entity-common-list': EntityCommonList
     }
   }
 </script>
