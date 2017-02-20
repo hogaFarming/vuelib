@@ -24,7 +24,8 @@
               搜索
             </search>-->
             <div class="toolbar__search search" v-if="searchConfig.entityKey">
-              <input class="search__input" type="text" v-model="keyword" :placeholder="searchConfig.placeholder"><x-button @click="search" class="search__button">搜索</x-button>
+              <input class="search__input" type="text" v-model="keyword" :placeholder="searchConfig.placeholder"
+              ><x-button @click="search" class="search__button">搜索</x-button>
             </div>
             <x-button @click="advanceSearch">高级搜索</x-button>
           </div>

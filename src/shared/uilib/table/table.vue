@@ -8,7 +8,7 @@
             @change="handleSelectAll">
         </th>
         <th v-for="col in columns">
-          {{col.title}}
+          <span>{{col.title}}</span>
         </th>
       </tr>
       <tr v-for="(record, index) in records">
@@ -19,7 +19,11 @@
             v-model="selectedIndex">
         </td>
         <td v-for="col in columns">
-          {{record[col.key]}}
+          <span
+            :class="{'x-table__link': col.type === 'link'}"
+            @click="onCellClick(record, col.key)">
+            {{record[col.key]}}
+          </span>
         </td>
       </tr>
     </table>
@@ -59,6 +63,10 @@
       }
     },
 
+    mounted () {
+
+    },
+
     methods: {
       handleSelectAll (e) {
         const checked = e.target.checked
@@ -70,6 +78,10 @@
       },
 
       handleSelect (evt, record) {
+      },
+
+      onCellClick (record, key) {
+        this.$emit('cell-click', { record, key })
       }
     }
   }

@@ -4,7 +4,7 @@
     <div class="x-modal__dialog">
       <div class="x-modal__header">
         <span>{{title}}</span>
-        <x-icon name="close" class="x-modal__close"></x-icon>
+        <x-icon name="close" class="x-modal__close" @click="cancel"></x-icon>
       </div>
       <div class="x-modal__body">
         <slot></slot>
@@ -52,6 +52,7 @@
     float: right;
     line-height: 48px;
     color: #666;
+    cursor: pointer;
   }
   .x-modal__body {
     padding: 10px 20px;

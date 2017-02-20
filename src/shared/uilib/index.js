@@ -1,6 +1,7 @@
 /**
  * 基础UI库
  */
+import Input from './input'
 import Button from './button'
 import Icon from './icon'
 import { Row, Col } from './grid'
@@ -11,6 +12,7 @@ import Modal from './modal'
 
 export default {
   install (Vue, options) {
+    Vue.component('x-input', Input)
     Vue.component('x-button', Button)
     Vue.component('x-icon', Icon)
     Vue.component('x-row', Row)

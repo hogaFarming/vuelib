@@ -3,6 +3,7 @@ var config = require('../config')
 if (!process.env.NODE_ENV) process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
 var path = require('path')
 var express = require('express')
+var proxy = require('http-proxy-middleware')
 var webpack = require('webpack')
 var opn = require('opn')
 var proxyMiddleware = require('http-proxy-middleware')
@@ -63,6 +64,12 @@ var uri = 'http://localhost:' + port
 devMiddleware.waitUntilValid(function () {
   console.log('> Listening at ' + uri + '\n')
 })
+
+//启用本地api代理
+app.use('/api', proxy({
+  target: 'http://172.16.31.217:8888/',
+  changeOrigin: true
+}))
 
 module.exports = app.listen(port, function (err) {
   if (err) {

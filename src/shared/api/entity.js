@@ -1,10 +1,11 @@
 import Vue from 'vue'
 
 const prefix = 'http://172.16.0.121/api/protocol'
+const prefix2 = '/api/EntityPro'
 
 /**
  * 获取指定实体下的类型
- * 
+ *
  * @export
  * @param {entityId} entityId
  * @returns {Promise}
@@ -17,7 +18,7 @@ export function fetchEntityTypes (entityId) {
 
 /**
  * 获取指定实体类型下的新增表单协议
- * 
+ *
  * @export
  * @param {String} entityId
  * @param {String} entityTypeId
@@ -32,7 +33,7 @@ export function fetchEntityAddProtocal (entityId, entityTypeId) {
 
 /**
  * 保存实体表单（新增编辑通用）
- * 
+ *
  * @export
  * @param {Object} { entityId, entityTypeId, jsonData }
  * @returns {Promise}
@@ -43,7 +44,7 @@ export function saveEntityData ({ entityId, entityTypeId, jsonData }) {
 
 /**
  * 获取指定实体列表数据
- * 
+ *
  * @export
  * @param {String} entityId
  * @param {Object} queryData
@@ -80,4 +81,66 @@ export function fetchEntityList (entityId, queryData) {
       ]
     }), 350)
   })
+}
+
+/**
+ * 获取实体配置列表
+ * {
+      pageIndex: 1,
+      pageSize: 10,
+      entityName: '',
+      typeName: '',
+      status: ''
+   }
+ */
+export function fetchEntities (params) {
+  return Vue.http.post(`${prefix2}/queryentitypro`, params)
+}
+
+/**
+ * 新增实体
+ * @param params
+ *  {
+      "EntityName":"",
+      "EntityTable":"",
+      "TypeId":null,
+      "Remark":"",
+      "Styles":"",
+      "Icons":"",
+      "RelentityId":null,
+      "Perfix":"",
+      "ReleaseStatus":0
+    }
+ * @returns {*}
+ */
+export function addEntity (params) {
+  return Vue.http.post(`${prefix2}/insertentitypro`, params)
+}
+
+/**
+ * 获取实体下的类型（配置页面）
+ * @param entityId
+ * @returns {*}
+ */
+export function fetchEntityTypes2 (entityId) {
+  return Vue.http.post(`${prefix2}/queryentitytype`, { entityId })
+}
+
+/**
+ * 实体下新增类型
+ * @param entityId
+ * @param typeName
+ * @returns {*}
+ */
+export function addEntityType (typeName, entityId) {
+  return Vue.http.post(`${prefix2}/insertentitytype`, { entityId, CategoryName: typeName })
+}
+
+/**
+ * 获取实体下字段
+ * @param entityId
+ * @param entityType
+ */
+export function fetchEntityFields (entityId, entityType) {
+  return Vue.http.post(`${prefix2}/queryentityfields`, { entityId, entityType })
 }

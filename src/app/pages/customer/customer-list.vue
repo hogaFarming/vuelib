@@ -6,7 +6,7 @@
     :searchConfig="searchConfig"
     :records-can-delete="recordsCanDelete"
     @select-change="onSelectChange">
-    
+
     <!--<div slot="filters">-->
       <select v-model="selectedType" slot="filters">
         <option v-for="t in types" :value="t.value">{{t.name}}</option>
