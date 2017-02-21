@@ -4,11 +4,18 @@
       <x-input v-model="newType.name" placeholder="请输入类型名称"></x-input>
       <x-button @click="add">添加</x-button>
     </div>
-    <ul>
-      <li v-for="t in types">
-        {{t.order}}
-        {{t.name}}
-        {{t.status === 1 ? '已启用' : '已禁用'}}
+    <ul class="slim-list">
+      <li v-for="(t, index) in types" class="slim-list__row">
+        <span class="slim-list__order">{{index + 1}}</span>
+        <span class="slim-list__text">{{t.categoryname}}</span>
+        <x-icon class="slim-list__ctrl" name="arrow-up" @click="orderUp(t, index)"
+                :style="{visibility: index ? 'visible' : 'hidden'}"></x-icon>
+        <x-icon class="slim-list__ctrl" name="arrow-down" @click="orderDown(t, index)"
+                :style="{visibility: index === types.length - 1 ? 'hidden' : 'visible'}">
+        </x-icon>
+        <x-icon class="slim-list__ctrl" name="ban" @click="toggle(t, index)"></x-icon>
+        <x-icon class="slim-list__ctrl" name="edit" @click="edit(t, index)"></x-icon>
+        <x-icon class="slim-list__ctrl" name="trash" @click="remove(t, index)"></x-icon>
       </li>
     </ul>
   </div>
@@ -40,6 +47,18 @@
         }
         commonApi.addEntityType(this.newType.name, this.$route.params.id)
           .then(response => console.log(response))
+      },
+      edit (item, index) {
+
+      },
+      orderUp (item, index) {
+
+      },
+      orderDown (item, index) {
+
+      },
+      remove (item, index) {
+
       }
     }
   }

@@ -18,3 +18,7 @@
 .x-table tr:nth-child(2n) {
   background: #f9f9f9;
 }
+.x-table__link {
+  color: #0273b7;
+  cursor: pointer;
+}

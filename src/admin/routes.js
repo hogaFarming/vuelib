@@ -18,7 +18,8 @@ const routes = [
       { path: 'fields', component: EntityFields },
       { path: 'props', component: EntityFieldsProps },
       { path: 'menus', component: EntityMenus },
-      { path: 'tabs', component: EntityTabs }
+      { path: 'tabs', component: EntityTabs },
+      { path: '', redirect: 'types' }
     ]
   },
   { path: '/data-source',   component: EntityList }

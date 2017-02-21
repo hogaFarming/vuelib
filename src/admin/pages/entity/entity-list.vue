@@ -62,7 +62,7 @@
 <script>
   import commonApi from 'api'
   const columns = [
-    { title: '实体名称', key: 'entityname', type: 'click' },
+    { title: '实体名称', key: 'entityname', type: 'link' },
     { title: '实体类型', key: 'typename' },
     { title: '关联实体', key: 'relentityid' },
     { title: '发布状态', key: 'recstatus' },

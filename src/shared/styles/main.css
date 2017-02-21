@@ -86,6 +86,43 @@ body {
   padding: 5px 10px;
 }
 
+.slim-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.slim-list__row {
+  height: 48px;
+  line-height: 48px;
+  border-left: 6px solid #596372;
+  padding-left: 15px;
+  color: #4a4a4a;
+}
+.slim-list__row:nth-child(2n+1) {
+  background-color: #f9f9f9;
+}
+.slim-list__order {
+  display: inline-block;
+  /*width: 2em;*/
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.slim-list__text {
+  display: inline-block;
+  width: 200px; /* 页面重写width */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.slim-list__ctrl {
+  vertical-align: middle;
+  color: #acb3bd;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
 /* ==============================
  *  工具类
  * ============================== */
