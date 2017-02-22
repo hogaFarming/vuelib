@@ -66,8 +66,12 @@ devMiddleware.waitUntilValid(function () {
 })
 
 //启用本地api代理
-app.use('/api', proxy({
+app.use('/api/EntityPro', proxy({
   target: 'http://172.16.31.217:8888/',
+  changeOrigin: true
+}))
+app.use('/api/protocol', proxy({
+  target: 'http://172.16.0.121',
   changeOrigin: true
 }))
 

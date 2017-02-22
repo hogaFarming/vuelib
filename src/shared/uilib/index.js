@@ -9,6 +9,7 @@ import BreadCrumb from './breadcrumb'
 import { Dropdown, DropdownMenu, DropdownItem } from './dropdown'
 import Table from './table'
 import Modal from './modal'
+import Form, { FormField } from './form'
 
 export default {
   install (Vue, options) {
@@ -23,5 +24,7 @@ export default {
     Vue.component('x-dropdown-item', DropdownItem)
     Vue.component('x-table', Table)
     Vue.component('x-modal', Modal)
+    Vue.component('x-form', Form)
+    Vue.component('x-form-field', FormField)
   }
 }

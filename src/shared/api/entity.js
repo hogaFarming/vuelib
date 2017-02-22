@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-const prefix = 'http://172.16.0.121/api/protocol'
+const prefix = '/api/protocol'
 const prefix2 = '/api/EntityPro'
 
 /**
@@ -139,8 +139,22 @@ export function addEntityType (typeName, entityId) {
 /**
  * 获取实体下字段
  * @param entityId
- * @param entityType
  */
-export function fetchEntityFields (entityId, entityType) {
-  return Vue.http.post(`${prefix2}/queryentityfields`, { entityId, entityType })
+export function fetchEntityFields (entityId) {
+  return Vue.http.post(`${prefix2}/queryentityfield`, { entityId })
+}
+
+/**
+ * 新增实体字段
+ * 
+ * @export
+ * @param {any} params
+ * @returns
+ */
+export function createEntityField (params) {
+  return Vue.http.post(`${prefix2}/saveentityfield`, params)
+}
+
+export function fetchFieldRules (entityId, typeId) {
+  
 }

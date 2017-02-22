@@ -6,6 +6,7 @@
     :type="type"
     :placeholder="placeholder"
     :block="block"
+    @click="$emit('click', $event)"
     @input="handleInput"
     @change="$emit('change', $event)"
     @blur="$emit('blur', $event)"
@@ -51,11 +52,12 @@
 
 <style>
   .x-input {
-    padding: 8px 10px;
+    padding: 5px 10px;
     background: #ffffff;
     border: 1px solid #dddddd;
     border-radius: 2px;
-    /*line-height: 33px;*/
+    line-height: 34px;
+    height: 34px;
     font-size: 14px;
     outline: none;
   }
@@ -67,5 +69,10 @@
   }
   .x-input_block {
     width: 100%;
+  }
+  .x-input_textarea {
+    height: auto;
+    line-height: 1.25;
+    resize: vertical;
   }
 </style>
