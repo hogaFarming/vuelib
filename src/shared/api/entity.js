@@ -155,6 +155,26 @@ export function createEntityField (params) {
   return Vue.http.post(`${prefix2}/saveentityfield`, params)
 }
 
-export function fetchFieldRules (entityId, typeId) {
-  
+/**
+ * 获取实体下字段显示规则
+ * 
+ * @export
+ * @param {any} entityId
+ * @param {any} typeId
+ * @param {any} useType
+ * @returns
+ */
+export function fetchFieldRules (params) {
+  return Vue.http.post(`${prefix2}/entityfieldrulesquery`, params)
+}
+
+/**
+ * 保存字段显示规则
+ * 
+ * @export
+ * @param {any} params
+ * @returns
+ */
+export function saveFieldRules (params) {
+  return Vue.http.post(`${prefix2}/saveentityfieldrules`, params)
 }

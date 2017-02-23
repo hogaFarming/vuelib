@@ -30,11 +30,12 @@ body {
   overflow: auto;
 }
 .l-app__page {
-  padding: 20px 15px 0;
+  padding: 20px 15px 20px;
 }
 
 .l-cnt {
   background: #fff;
+  padding-bottom: 50px;
 }
 .l-cnt__title-bar {
   line-height: 50px;
@@ -97,6 +98,7 @@ body {
   border-left: 6px solid #596372;
   padding-left: 15px;
   color: #4a4a4a;
+  border-bottom: #f4f4f4;
 }
 .slim-list__row:nth-child(2n+1) {
   background-color: #f9f9f9;

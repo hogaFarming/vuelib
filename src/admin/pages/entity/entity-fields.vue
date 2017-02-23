@@ -14,17 +14,23 @@
 <script>
   import commonApi from 'api'
   import AddFieldModel from './add-field-modal'
-  const columns = [
-    { title: '序号', key: 'recorder' },
-    { title: '字段名称', key: 'fieldlabel' },
-    { title: '显示名称', key: 'displayname' },
-    { title: '格式', key: 'controltype' },
-    { title: '字段列名', key: 'fieldname' },
-    { title: '状态', key: 'recstatus' },
-    { title: '操作', key: 'fi3eldname' }
-  ]
   export default {
     data () {
+      const columns = [
+        { title: '序号', key: 'recorder' },
+        { title: '字段名称', key: 'fieldlabel' },
+        { title: '显示名称', key: 'displayname' },
+        { title: '格式', key: 'controltype' },
+        { title: '字段列名', key: 'fieldname' },
+        { title: '状态', key: 'recstatus' },
+        {
+          title: '操作',
+          operations: [
+            { name: '编辑', handler: this.editRecord },
+            { name: '删除', handler: this.removeRecord }
+          ]
+        }
+      ]
       return {
         fields: [],
         columns: columns,
@@ -49,6 +55,12 @@
       createField () {
         debugger
         this.addModalVisible = true
+      },
+      editRecord (record) {
+
+      },
+      removeRecord (record) {
+        
       }
     },
 

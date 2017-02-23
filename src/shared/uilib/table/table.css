@@ -22,3 +22,8 @@
   color: #0273b7;
   cursor: pointer;
 }
+.x-table__operation {
+  color: #0273b7;
+  cursor: pointer;
+  margin-right: 5px;
+}

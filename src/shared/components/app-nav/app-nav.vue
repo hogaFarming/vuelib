@@ -56,7 +56,7 @@
     },
     created () {
       eventBus.$on('WINDOW_RESIZE', _.throttle(msg => {
-        console.log(msg)
+        // console.log(msg)
         const appHeadHeight = 60
         const perMenu = 43
         const menuCount = this.menus.length

@@ -19,7 +19,12 @@
             v-model="selectedIndex">
         </td>
         <td v-for="col in columns">
-          <span
+          <input type="checkbox" v-if="col.type === 'checkbox'"
+            v-model.number="record[col.key]">
+          <span v-if="col.operations">
+            <span class="x-table__operation" v-for="op in col.operations" @click="op.handler(record)">{{op.name}}</span>
+          </span>
+          <span v-if="!col.operations && !col.type"
             :class="{'x-table__link': col.type === 'link'}"
             @click="onCellClick(record, col.key)">
             {{record[col.key]}}

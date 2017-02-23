@@ -20,6 +20,11 @@
     </ul>
   </div>
 </template>
+<style scoped>
+  .slim-list {
+    padding-left: 15px;
+  }
+</style>
 <script>
   import commonApi from 'api'
   export default {
