@@ -161,7 +161,7 @@
             fieldLabel: field.fieldlabel,
             recStatus: 1,
             rules: [{
-              // FieldRulesId: '',
+              FieldRulesId: '',
               operateType: 0,
               isVisible: 1,
               useType,
@@ -173,7 +173,7 @@
                 isRequired: 0
               }
             }, {
-              // FieldRulesId: '',
+              FieldRulesId: '',
               operateType: 1,
               isVisible: 1,
               useType,
@@ -185,7 +185,7 @@
                 isRequired: 0
               }
             }, {
-              // FieldRulesId: '',
+              FieldRulesId: '',
               operateType: 2,
               isVisible: 1,
               useType,

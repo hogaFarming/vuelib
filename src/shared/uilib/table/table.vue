@@ -24,7 +24,7 @@
           <span v-if="col.operations">
             <span class="x-table__operation" v-for="op in col.operations" @click="op.handler(record)">{{op.name}}</span>
           </span>
-          <span v-if="!col.operations && !col.type"
+          <span v-if="(!col.operations && !col.type) || col.type === 'link'"
             :class="{'x-table__link': col.type === 'link'}"
             @click="onCellClick(record, col.key)">
             {{record[col.key]}}
